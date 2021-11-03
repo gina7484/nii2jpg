@@ -15,9 +15,10 @@ pip install -r requirements.txt
 
 ## Python Usage 
 
-1. Let's run the file and start converting images! Please ensure that your output folder ends with a slash to avoid errors.
+1. Let's run the file and start converting images! **Please ensure that your output folder ends with a slash to avoid errors.**
 
 ```
+$ cd (move to the python/foler)
 $ python nii2png.py -i <inputfile> -o <outputfolder>
 ```
 
