@@ -42,20 +42,20 @@ with change directory command
 
 ```
 $ cd ~/images/
-$ python3 nii2png.py -i brain.nii.gz -o png/
+$ python nii2png.py -i brain.nii.gz -o png/
 ```
 
 with full paths
 
 ```
-$ python3 /users/ernie/images/nii2png.py -i /users/ernie/images/brain.nii.gz -o /users/ernie/images/png/
+$ python /users/ernie/images/nii2png.py -i /users/ernie/images/brain.nii.gz -o /users/ernie/images/png/
 ```
 
 with long options
 
 
 ```
-$ python3 /users/ernie/images/nii2png.py --input /users/ernie/images/brain.nii.gz --output /users/ernie/images/png/
+$ python /users/ernie/images/nii2png.py --input /users/ernie/images/brain.nii.gz --output /users/ernie/images/png/
 ```
 
 
