@@ -90,7 +90,8 @@ def main(argv):
                             
                     #alternate slices and save as png
                     print('Saving image...')
-                    image_name = inputfile[:-4] + "_t" + "{:0>3}".format(str(current_volume+1)) + "_z" + "{:0>3}".format(str(current_slice+1))+ ".png"
+                    #image_name = inputfile[:-4] + "_t" + "{:0>3}".format(str(current_volume+1)) + "_z" + "{:0>3}".format(str(current_slice+1))+ ".png"
+                    image_name = "img_z" + "{:0>3}".format(str(current_slice+1))+ ".jpg"
                     imageio.imwrite(image_name, data)
                     print('Saved.')
 
@@ -137,7 +138,8 @@ def main(argv):
                 #alternate slices and save as png
                 if (slice_counter % 1) == 0:
                     print('Saving image...')
-                    image_name = inputfile[:-4] + "_z" + "{:0>3}".format(str(current_slice+1))+ ".png"
+                    #image_name = inputfile[:-4] + "_z" + "{:0>3}".format(str(current_slice+1))+ ".png"
+                    image_name = "img_z" + "{:0>3}".format(str(current_slice+1))+ ".jpg"
                     imageio.imwrite(image_name, data)
                     print('Saved.')
 
