@@ -24,7 +24,7 @@ $ python nii2png.py -i <inputfile> -o <outputfolder>
 or
 
 ```
-$ python3 nii2png.py --input <inputfile> --ouput <outputfolder>
+$ python nii2png.py --input <inputfile> --ouput <outputfolder>
 ```
 
 Tip: You can drag and drop the file/folder into the terminal window instead of typing the path
