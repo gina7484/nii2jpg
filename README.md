@@ -9,9 +9,10 @@ Now supports both Python3 and Matlab 2017b!
 ## Python Setup
 1. clone this repository
 2. download the requirements
-'''
+```
 pip install -r requirements.txt
-'''
+```
+
 
 ## Python Usage 
 
