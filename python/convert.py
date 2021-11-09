@@ -14,29 +14,10 @@
 import imageio, numpy, shutil, os, nibabel
 import sys, getopt
 
-def main(argv):
-    inputfile = ''
-    outputfile = ''
-    try:
-        opts, args = getopt.getopt(argv,"hi:o:",["ifile=","ofile="])
-    except getopt.GetoptError:
-        print('nii2png.py -i <inputfile> -o <outputfile>')
-        sys.exit(2)
-    for opt, arg in opts:
-        if opt == '-h':
-            print('nii2png.py -i <inputfile> -o <outputfile>')
-            sys.exit()
-        elif opt in ("-i", "--input"):
-            inputfile = arg
-        elif opt in ("-o", "--output"):
-            outputfile = arg
-
-    print('Input file is ', inputfile)
-    print('Output folder is ', outputfile)
-
+def convert(inputfile,outputdir,case_number):
     # set fn as your 4d nifti file
     image_array = nibabel.load(inputfile).get_data()
-    print(len(image_array.shape))
+    print("dimension:"+str(len(image_array.shape)))
 
     # ask if rotate
     ask_rotate = input('Would you like to rotate the orientation? (y/n) ')
@@ -60,9 +41,9 @@ def main(argv):
         nx, ny, nz, nw = image_array.shape
 
         # set destination folder
-        if not os.path.exists(outputfile):
-            os.makedirs(outputfile)
-            print("Created ouput directory: " + outputfile)
+        if not os.path.exists(outputdir):
+            os.makedirs(outputdir)
+            print("Created ouput directory: " + outputdir)
 
         print('Reading NIfTI file...')
 
@@ -91,14 +72,14 @@ def main(argv):
                     #alternate slices and save as png
                     print('Saving image...')
                     #image_name = inputfile[:-4] + "_t" + "{:0>3}".format(str(current_volume+1)) + "_z" + "{:0>3}".format(str(current_slice+1))+ ".png"
-                    image_name = "img_z" + "{:0>3}".format(str(current_slice+1))+ ".jpg"
+                    image_name = "img_" + str(case_number)+ "_z" + "{:0>3}".format(str(current_slice))+ ".jpg"
                     imageio.imwrite(image_name, data)
                     print('Saved.')
 
                     #move images to folder
                     print('Moving files...')
                     src = image_name
-                    shutil.move(src, outputfile)
+                    shutil.move(src, outputdir)
                     slice_counter += 1
                     print('Moved.')
 
@@ -110,17 +91,32 @@ def main(argv):
         nx, ny, nz = image_array.shape
 
         # set destination folder
-        if not os.path.exists(outputfile):
-            os.makedirs(outputfile)
-            print("Created ouput directory: " + outputfile)
+        if not os.path.exists(outputdir):
+            os.makedirs(outputdir)
+            print("Created ouput directory: " + outputdir)
 
         print('Reading NIfTI file...')
 
         total_slices = image_array.shape[2]
 
         slice_counter = 0
+        '''
+        selectively choose Z index
+        '''
+        criteria=[100,300,700]
+        windowsize=[30,100,260,480]
+        startIndex=0
+        if total_slices<=criteria[0]:
+            startIndex=total_slices-windowsize[0]
+        elif total_slices<=criteria[1]:
+            startIndex=total_slices-windowsize[1]
+        elif total_slices<=criteria[2]:
+            startIndex=total_slices-windowsize[2]
+        else:
+            startIndex=total_slices-windowsize[3]
+
         # iterate through slices
-        for current_slice in range(0, total_slices):
+        for current_slice in range(startIndex, total_slices):
             # alternate slices
             if (slice_counter % 1) == 0:
                 # rotate or no rotate
@@ -139,14 +135,14 @@ def main(argv):
                 if (slice_counter % 1) == 0:
                     print('Saving image...')
                     #image_name = inputfile[:-4] + "_z" + "{:0>3}".format(str(current_slice+1))+ ".png"
-                    image_name = "img_z" + "{:0>3}".format(str(current_slice+1))+ ".jpg"
+                    image_name = "img_" + str(case_number)+ "_z" + "{:0>3}".format(str(current_slice))+ ".jpg"
                     imageio.imwrite(image_name, data)
                     print('Saved.')
 
                     #move images to folder
                     print('Moving image...')
                     src = image_name
-                    shutil.move(src, outputfile)
+                    shutil.move(src, outputdir)
                     slice_counter += 1
                     print('Moved.')
 
@@ -154,6 +150,3 @@ def main(argv):
     else:
         print('Not a 3D or 4D Image. Please try again.')
 
-# call the function to start the program
-if __name__ == "__main__":
-   main(sys.argv[1:])
