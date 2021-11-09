@@ -36,7 +36,7 @@ def convert(inputfile,outputdir,case_number):
         print('You must choose either y or n. Quitting...')
         sys.exit()
     '''
-    
+
     # if 4D image inputted
     if len(image_array.shape) == 4:
         # set 4d array dimension values
@@ -59,6 +59,7 @@ def convert(inputfile,outputdir,case_number):
             for current_slice in range(0, total_slices):
                 if (slice_counter % 1) == 0:
                     # rotate or no rotate
+                    '''
                     if ask_rotate.lower() == 'y':
                         if ask_rotate_num == 90 or ask_rotate_num == 180 or ask_rotate_num == 270:
                             print('Rotating image...')
@@ -70,6 +71,8 @@ def convert(inputfile,outputdir,case_number):
                                 data = numpy.rot90(numpy.rot90(numpy.rot90(image_array[:, :, current_slice, current_volume])))
                     elif ask_rotate.lower() == 'n':
                         data = image_array[:, :, current_slice, current_volume]
+                    '''
+                    data = image_array[:, :, current_slice, current_volume]
                             
                     #alternate slices and save as png
                     print('Saving image...')
@@ -102,11 +105,12 @@ def convert(inputfile,outputdir,case_number):
         total_slices = image_array.shape[2]
 
         slice_counter = 0
-        '''
-        selectively choose Z index
-        '''
+        #########################################
+        #       selectively choose Z index      #
+        #########################################
         criteria=[100,300,700]
         windowsize=[30,100,260,480]
+        exclude_data=[55,65]
         startIndex=0
         if total_slices<=criteria[0]:
             startIndex=total_slices-windowsize[0]
@@ -120,8 +124,11 @@ def convert(inputfile,outputdir,case_number):
         # iterate through slices
         for current_slice in range(startIndex, total_slices):
             # alternate slices
+            if current_slice in exclude_data:
+                continue
             if (slice_counter % 1) == 0:
                 # rotate or no rotate
+                '''
                 if ask_rotate.lower() == 'y':
                     if ask_rotate_num == 90 or ask_rotate_num == 180 or ask_rotate_num == 270:
                         if ask_rotate_num == 90:
@@ -132,6 +139,8 @@ def convert(inputfile,outputdir,case_number):
                             data = numpy.rot90(numpy.rot90(numpy.rot90(image_array[:, :, current_slice])))
                 elif ask_rotate.lower() == 'n':
                     data = image_array[:, :, current_slice]
+                '''
+                data = image_array[:, :, current_slice]
 
                 #alternate slices and save as png
                 if (slice_counter % 1) == 0:
