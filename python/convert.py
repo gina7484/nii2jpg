@@ -20,6 +20,7 @@ def convert(inputfile,outputdir,case_number):
     print("dimension:"+str(len(image_array.shape)))
 
     # ask if rotate
+    '''
     ask_rotate = input('Would you like to rotate the orientation? (y/n) ')
 
     if ask_rotate.lower() == 'y':
@@ -34,7 +35,8 @@ def convert(inputfile,outputdir,case_number):
     else:
         print('You must choose either y or n. Quitting...')
         sys.exit()
-
+    '''
+    
     # if 4D image inputted
     if len(image_array.shape) == 4:
         # set 4d array dimension values
