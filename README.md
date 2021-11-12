@@ -13,7 +13,6 @@ Now supports both Python3 and Matlab 2017b!
 pip install -r requirements.txt
 ```
 
-
 ## Python Usage 
 
 1. Let's run the file and start converting images! **Please ensure that your output folder ends with a slash to avoid errors.**
