@@ -14,7 +14,7 @@
 import imageio, numpy, shutil, os, nibabel
 import sys, getopt
 
-def convert(inputfile,outputdir,case_number):
+def convert(inputfile,outputdir,case_number,start_idx, last_idx):
     # set fn as your 4d nifti file
     image_array = nibabel.load(inputfile).get_data()
     print("dimension:"+str(len(image_array.shape)))
@@ -108,24 +108,14 @@ def convert(inputfile,outputdir,case_number):
         #########################################
         #       selectively choose Z index      #
         #########################################
-        criteria=[100,300,700]
-        windowsize=[30,100,260,480]
-        exclude_data=[55,65]
-        startIndex=0
-        if total_slices<=criteria[0]:
-            startIndex=total_slices-windowsize[0]
-        elif total_slices<=criteria[1]:
-            startIndex=total_slices-windowsize[1]
-        elif total_slices<=criteria[2]:
-            startIndex=total_slices-windowsize[2]
-        else:
-            startIndex=total_slices-windowsize[3]
 
         # iterate through slices
-        for current_slice in range(startIndex, total_slices):
+        for current_slice in range(start_idx, last_idx):
             # alternate slices
+            '''
             if current_slice in exclude_data:
                 continue
+            '''
             if (slice_counter % 1) == 0:
                 # rotate or no rotate
                 '''
