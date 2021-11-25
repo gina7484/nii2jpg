@@ -34,7 +34,7 @@ def convertDir(args):
         last_idx=last_idx_list[idx]
 
         print("converting: "+filename)
-        convert(os.path.join(inputdir,filename),outputdir,case_number,start_idx, last_idx)
+        convert(os.path.join(inputdir,filename),outputdir,case_number,start_idx, last_idx+1)
         continue
 
 
