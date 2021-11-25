@@ -4,3 +4,4 @@ numpy==1.21.3
 packaging==21.2
 Pillow==8.4.0
 pyparsing==2.4.7
+pandas
