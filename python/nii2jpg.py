@@ -10,8 +10,8 @@ def convertDir(args):
     outputdir = args.outputdir
     csvpath= args.csvpath
     
-    # nii2jpg.py -i ../../CT-ORG/CT_ORG_Data_Training_labels_kidneys/ -o ../../2D/training/label-kidney/ -idx ./kidney_idx_training.CSV
-    # nii2jpg.py -i ../../CT-ORG/CT_ORG_Data_Testing_labels_kidneys/ -o ../../2D/testing/label-kidney/ -idx ./kidney_idx_testing.CSV
+    # nii2jpg.py -i ../../CT-ORG/CT_ORG_Data_Training/ -o ../../2D/training/image-kidney/ -x ./kidney_idx_training.CSV
+    # nii2jpg.py -i ../../CT-ORG/CT_ORG_Data_Testing/ -o ../../2D/testing/image-kidney/ -x ./kidney_idx_testing.CSV
 
     print('Input file is ', inputdir)
     print('Output folder is ', outputdir)
@@ -28,10 +28,12 @@ def convertDir(args):
         print("length of data:"+str(len(data_id_list)))
 
         case_number=data_id_list[idx] # int
-        filename='labels-'+str(case_number)+'-kidneys.nii.gz'
+        filename='volume-'+str(case_number)+'-resized.nii.gz'
         
         start_idx=start_idx_list[idx]
         last_idx=last_idx_list[idx]
+        # start_idx_list[idx]
+        # last_idx_list[idx]
 
         print("converting: "+filename)
         convert(os.path.join(inputdir,filename),outputdir,case_number,start_idx, last_idx+1)
