@@ -77,6 +77,16 @@ or
 $ python nii2png.py --input <inputfolder> --ouput <outputfolder> -x <csvfile>
 ```
 
+Note: We assume that the files in the inputfolder is names in the following format. (The number 1 is the id for the input file)
+```
+volume_1_resized.nii.gz
+```
+(You can change this part (https://github.com/gina7484/nii2jpg/blob/629f76cd03deda9123dbd67de675fbfcc7ade887/python/nii2jpg.py#L31) according to the file name format in your own input folder.)
+
+This will be sliced into several 2D jpg images which are named as below.
+```
+volume_1_resized.nii.gz
+```
 
 #### Example
 
@@ -86,7 +96,7 @@ with change directory command
 $ cd ./python/
 $ python nii2jpg.py -i ../../CT-ORG/CT_ORG_Data_Testing/ -o ../../2D/testing/image-kidney/ -x ./kidney_idx_testing.CSV
 ```
-The format of csv file is as below.
+The format of csv file is as below. The id should be identical to the number included in the file name. (i.e. If the id in the csv is 21, the corresponding file should be named as volume_21_resized.nii.gz)
 ```
 id,first,last
 21,272,457
