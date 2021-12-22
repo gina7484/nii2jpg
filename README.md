@@ -15,6 +15,11 @@ pip install -r requirements.txt
 
 ## Python Usage 
 
+We have 2 versions.
+The first version is as same as the original library (https://github.com/alexlaurence/NIfTI-Image-Converter). It converts a sinle NIfTI image into series of 2D jpg images.
+The second version is modified from the original library, which converts each file in a given folder into series of 2D jpg images. It selectively produces 2D images within the z index range indicated in the csv file.
+
+### First verion (master branch)
 1. Let's run the file and start converting images! **Please ensure that your output folder ends with a slash to avoid errors.**
 
 ```
@@ -28,7 +33,6 @@ or
 $ python nii2png.py --input <inputfile> --ouput <outputfolder>
 ```
 
-Tip: You can drag and drop the file/folder into the terminal window instead of typing the path
 
 2. Rotate the images if you wish
 
@@ -37,7 +41,7 @@ $ Would you like to rotate the orientation? (y/n) y
 $ OK. By 90° 180° or 270°? 90
 ```
 
-### Example
+#### Example
 
 with change directory command
 
@@ -59,6 +63,42 @@ with long options
 $ python /users/ernie/images/nii2png.py --input /users/ernie/images/brain.nii.gz --output /users/ernie/images/png/
 ```
 
+### Second verion (targetConvert branch)
+1. Let's run the file and start converting images! **Please ensure that your output folder ends with a slash to avoid errors.**
+
+```
+$ cd (move to the python/foler)
+$ python nii2png.py -i <inputfolder> -o <outputfolder> -x <csvfile>
+```
+
+or
+
+```
+$ python nii2png.py --input <inputfolder> --ouput <outputfolder> -x <csvfile>
+```
+
+
+#### Example
+
+with change directory command
+
+```
+$ cd ~/images/
+$ python nii2png.py -i brain.nii.gz -o png/
+```
+
+with full paths
+
+```
+$ python /users/ernie/images/nii2png.py -i /users/ernie/images/brain.nii.gz -o /users/ernie/images/png/
+```
+
+with long options
+
+
+```
+$ python /users/ernie/images/nii2png.py --input /users/ernie/images/brain.nii.gz --output /users/ernie/images/png/
+```
 
 ## Matlab Usage
 Refer to the original library (https://github.com/alexlaurence/NIfTI-Image-Converter) for this section.
