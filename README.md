@@ -83,22 +83,10 @@ $ python nii2png.py --input <inputfolder> --ouput <outputfolder> -x <csvfile>
 with change directory command
 
 ```
-$ cd ~/images/
-$ python nii2png.py -i brain.nii.gz -o png/
+$ cd ./python/
+$ python nii2jpg.py -i ../../CT-ORG/CT_ORG_Data_Testing/ -o ../../2D/testing/image-kidney/ -x ./kidney_idx_testing.CSV
 ```
 
-with full paths
-
-```
-$ python /users/ernie/images/nii2png.py -i /users/ernie/images/brain.nii.gz -o /users/ernie/images/png/
-```
-
-with long options
-
-
-```
-$ python /users/ernie/images/nii2png.py --input /users/ernie/images/brain.nii.gz --output /users/ernie/images/png/
-```
 
 ## Matlab Usage
 Refer to the original library (https://github.com/alexlaurence/NIfTI-Image-Converter) for this section.
