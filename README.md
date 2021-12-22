@@ -86,7 +86,14 @@ with change directory command
 $ cd ./python/
 $ python nii2jpg.py -i ../../CT-ORG/CT_ORG_Data_Testing/ -o ../../2D/testing/image-kidney/ -x ./kidney_idx_testing.CSV
 ```
-
+The format of csv file is as below.
+```
+id,first,last,total
+21,272,457,825
+22,303,474,844
+23,225,309,390
+...
+```
 
 ## Matlab Usage
 Refer to the original library (https://github.com/alexlaurence/NIfTI-Image-Converter) for this section.
