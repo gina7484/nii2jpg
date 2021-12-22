@@ -24,13 +24,13 @@ The second version is modified from the original library, which converts each fi
 
 ```
 $ cd (move to the python/foler)
-$ python nii2png.py -i <inputfile> -o <outputfolder>
+$ python nii2jpg.py -i <inputfile> -o <outputfolder>
 ```
 
 or
 
 ```
-$ python nii2png.py --input <inputfile> --ouput <outputfolder>
+$ python nii2jpg.py --input <inputfile> --ouput <outputfolder>
 ```
 
 
@@ -41,6 +41,10 @@ $ Would you like to rotate the orientation? (y/n) y
 $ OK. By 90° 180° or 270°? 90
 ```
 
+This will be sliced into several 2D jpg images which are named as below. The number after 'z' means the z index corresponding to the produced jpg image.
+```
+img_z72.jpg
+```
 #### Example
 
 with change directory command
