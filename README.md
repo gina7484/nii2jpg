@@ -64,17 +64,21 @@ $ python /users/ernie/images/nii2png.py --input /users/ernie/images/brain.nii.gz
 ```
 
 ### Second verion (targetConvert branch)
-1. Let's run the file and start converting images! **Please ensure that your output folder ends with a slash to avoid errors.**
+1. Move to the 'targetConvert' branch.
+```
+git checkout targetConvert
+```
+2. Let's run the file and start converting images! **Please ensure that your output folder ends with a slash to avoid errors.**
 
 ```
 $ cd (move to the python/foler)
-$ python nii2png.py -i <inputfolder> -o <outputfolder> -x <csvfile>
+$ python nii2jpg.py -i <inputfolder> -o <outputfolder> -x <csvfile>
 ```
 
 or
 
 ```
-$ python nii2png.py --input <inputfolder> --ouput <outputfolder> -x <csvfile>
+$ python nii2jpg.py --input <inputfolder> --ouput <outputfolder> -x <csvfile>
 ```
 
 Note: We assume that the files in the inputfolder is names in the following format. (The number 1 is the id for the input file)
