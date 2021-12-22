@@ -88,10 +88,10 @@ $ python nii2jpg.py -i ../../CT-ORG/CT_ORG_Data_Testing/ -o ../../2D/testing/ima
 ```
 The format of csv file is as below.
 ```
-id,first,last,total
-21,272,457,825
-22,303,474,844
-23,225,309,390
+id,first,last
+21,272,457
+22,303,474
+23,225,309
 ...
 ```
 
