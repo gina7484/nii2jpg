@@ -83,10 +83,11 @@ volume_1_resized.nii.gz
 ```
 (You can change this part (https://github.com/gina7484/nii2jpg/blob/629f76cd03deda9123dbd67de675fbfcc7ade887/python/nii2jpg.py#L31) according to the file name format in your own input folder.)
 
-This will be sliced into several 2D jpg images which are named as below.
+This will be sliced into several 2D jpg images which are named as below. The first number means the id of the input file and the number after 'z' means the z index corresponding to the produced jpg image.
 ```
-volume_1_resized.nii.gz
+img_1_z72.jpg
 ```
+(You can change this part https://github.com/gina7484/nii2jpg/blob/c4364096a4164dc5b9b6fdf25f037bee58eb8cf3/python/convert.py#L80 according to the desired filename format in your own output folder.)
 
 #### Example
 
