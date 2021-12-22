@@ -1,5 +1,5 @@
-# NIfTI Image Converter (nii2png) for Python and Matlab
-Rejoice OpenCV users, a lightweight neuroimaging .nii to .png converter that actually works. 
+# NIfTI Image Converter (nii2jpg) for Python and Matlab
+Rejoice OpenCV users, a lightweight neuroimaging .nii to .jpg converter that actually works. 
 
 Now supports both Python3 and Matlab 2017b!
 
@@ -51,20 +51,20 @@ with change directory command
 
 ```
 $ cd ~/images/
-$ python nii2png.py -i brain.nii.gz -o png/
+$ python nii2jpg.py -i brain.nii.gz -o png/
 ```
 
 with full paths
 
 ```
-$ python /users/ernie/images/nii2png.py -i /users/ernie/images/brain.nii.gz -o /users/ernie/images/png/
+$ python /users/ernie/images/nii2jpg.py -i /users/ernie/images/brain.nii.gz -o /users/ernie/images/png/
 ```
 
 with long options
 
 
 ```
-$ python /users/ernie/images/nii2png.py --input /users/ernie/images/brain.nii.gz --output /users/ernie/images/png/
+$ python /users/ernie/images/nii2jpg.py --input /users/ernie/images/brain.nii.gz --output /users/ernie/images/png/
 ```
 
 ### Second verion (targetConvert branch)
