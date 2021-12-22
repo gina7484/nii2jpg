@@ -66,7 +66,7 @@ $ python /users/ernie/images/nii2png.py --input /users/ernie/images/brain.nii.gz
 ### Second verion (targetConvert branch)
 1. Move to the 'targetConvert' branch.
 ```
-git checkout targetConvert
+$ git checkout targetConvert
 ```
 2. Let's run the file and start converting images! **Please ensure that your output folder ends with a slash to avoid errors.**
 
